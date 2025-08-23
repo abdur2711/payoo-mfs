@@ -14,4 +14,8 @@ document.getElementById('login-button').addEventListener('click', function(event
     else {
         alert('Invalid credentials');
     } 
+
+    document.getElementById('mobile-number').value = '';
+    document.getElementById('pin-number').value = '';
+
 });
