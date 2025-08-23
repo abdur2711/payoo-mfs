@@ -1,5 +1,15 @@
 const validPin = 1234;
 
+// function to get input value
+function getInputValue(id) {
+    return document.getElementById(id).value;
+}
+
+// function to get input value and convert to number
+function getInputValueNumber(id) {
+    return parseInt(document.getElementById(id).value);
+}
+
 // log out button interactivity
 document.getElementById('logout-btn').addEventListener('click', function (){
     window.location.href = './index.html'
@@ -9,10 +19,10 @@ document.getElementById('logout-btn').addEventListener('click', function (){
 document.getElementById('add-money-btn').addEventListener('click', function(e){
     e.preventDefault();
 
-    const bankName = document.getElementById('bank-name').value;
-    const accountNumber = document.getElementById('account-number').value;
-    const addAmount = parseInt(document.getElementById('add-amount').value);
-    const pinNumber = parseInt(document.getElementById('add-pin').value);
+    const bankName = getInputValue('bank-name');
+    const accountNumber = getInputValue('account-number');
+    const addAmount = getInputValueNumber('add-amount');
+    const pinNumber = getInputValueNumber('add-pin');
 
     if (accountNumber.length < 11 || accountNumber.length > 11) {
         alert('Please provide valid account number');
@@ -107,9 +117,9 @@ document.getElementById('transaction').addEventListener('click', function(){
 // cashout button interactivity
 document.getElementById('cashout-button').addEventListener('click', function(e){
     e.preventDefault();
-    const agentNumber = document.getElementById('agent-number').value;
-    const cashoutAmount = parseInt(document.getElementById('cashout-amount').value);
-    const cashoutPin = parseInt(document.getElementById('cashout-pin').value);
+    const agentNumber = getInputValue('agent-number');
+    const cashoutAmount = getInputValueNumber('cashout-amount');
+    const cashoutPin = getInputValueNumber('cashout-pin');
 
     if (agentNumber.length < 11 || agentNumber.length > 11) {
         alert('Please provide valid agent number');
@@ -140,9 +150,9 @@ document.getElementById('cashout-button').addEventListener('click', function(e){
 // transfer money button interactivity
 document.getElementById('transfer-button').addEventListener('click', function(e){
     e.preventDefault();
-    const recipientNumber = document.getElementById('recipient-number').value;
-    const transferAmount = parseInt(document.getElementById('transfer-amount').value);
-    const transferPin = parseInt(document.getElementById('transfer-pin').value);
+    const recipientNumber = getInputValue('recipient-number');
+    const transferAmount = getInputValueNumber('transfer-amount');
+    const transferPin = getInputValueNumber('transfer-pin');
 
     if (recipientNumber.length < 11 || recipientNumber.length > 11) {
         alert('Please provide valid user account number');
