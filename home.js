@@ -25,6 +25,15 @@ document.getElementById('logout-btn').addEventListener('click', function (){
     window.location.href = './index.html'
 })
 
+// function to toggle
+function handleToggle(id){
+    const forms = document.getElementsByClassName('form');
+    for (const form of forms){
+        form.style.display = 'none';
+    }
+    document.getElementById(id).style.display = 'block';
+}
+
 // add money button interativity 
 document.getElementById('add-money-btn').addEventListener('click', function(e){
     e.preventDefault();
@@ -71,51 +80,27 @@ document.getElementById('transaction-container').style.display = 'none';
 
 // toggling feature 
 document.getElementById('add-money').addEventListener('click', function(){
-    const forms = document.getElementsByClassName('form');
-    for (const form of forms){
-        form.style.display = 'none';
-    }
-    document.getElementById('add-money-container').style.display = 'block';
+    handleToggle('add-money-container');
 });
 
 document.getElementById('cashout').addEventListener('click', function(){
-    const forms = document.getElementsByClassName('form');
-    for (const form of forms){
-        form.style.display = 'none';
-    }
-    document.getElementById('cashout-container').style.display = 'block';
+    handleToggle('cashout-container');
 });
 
 document.getElementById('transfer-money').addEventListener('click', function(){
-    const forms = document.getElementsByClassName('form');
-    for (const form of forms){
-        form.style.display = 'none';
-    }
-    document.getElementById('transfer-money-container').style.display = 'block';
+    handleToggle('transfer-money-container');
 });
 
 document.getElementById('get-bonus').addEventListener('click', function(){
-    const forms = document.getElementsByClassName('form');
-    for (const form of forms){
-        form.style.display = 'none';
-    }
-    document.getElementById('get-bonus-container').style.display = 'block';
+    handleToggle('get-bonus-container');
 });
 
 document.getElementById('pay-bill').addEventListener('click', function(){
-    const forms = document.getElementsByClassName('form');
-    for (const form of forms){
-        form.style.display = 'none';
-    }
-    document.getElementById('pay-bill-container').style.display = 'block';
+    handleToggle('pay-bill-container');
 });
 
 document.getElementById('transaction').addEventListener('click', function(){
-    const forms = document.getElementsByClassName('form');
-    for (const form of forms){
-        form.style.display = 'none';
-    }
-    document.getElementById('transaction-container').style.display = 'block';
+    handleToggle('transaction-container');
 });
 
 // cashout button interactivity
