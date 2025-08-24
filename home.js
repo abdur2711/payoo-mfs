@@ -81,26 +81,74 @@ document.getElementById('transaction-container').style.display = 'none';
 // toggling feature 
 document.getElementById('add-money').addEventListener('click', function(){
     handleToggle('add-money-container');
+
+    const formBtns = document.getElementsByClassName('form-btn');
+    for (const btn of formBtns){
+        btn.classList.remove('border-[#0874f2]', 'bg-[#0874f20d]', 'text-blue-500');
+        btn.classList.add('border-gray-200');
+    }
+    document.getElementById('add-money').classList.remove('border-gray-200');
+    document.getElementById('add-money').classList.add('border-[#0874f2]', 'bg-[#0874f20d]', 'text-blue-500');
 });
 
 document.getElementById('cashout').addEventListener('click', function(){
     handleToggle('cashout-container');
+
+    const formBtns = document.getElementsByClassName('form-btn');
+    for (const btn of formBtns){
+        btn.classList.remove('border-[#0874f2]', 'bg-[#0874f20d]', 'text-blue-500');
+        btn.classList.add('border-gray-200');
+    }
+    document.getElementById('cashout').classList.remove('border-gray-200');
+    document.getElementById('cashout').classList.add('border-[#0874f2]', 'bg-[#0874f20d]', 'text-blue-500');
 });
 
 document.getElementById('transfer-money').addEventListener('click', function(){
     handleToggle('transfer-money-container');
+
+    const formBtns = document.getElementsByClassName('form-btn');
+    for (const btn of formBtns){
+        btn.classList.remove('border-[#0874f2]', 'bg-[#0874f20d]', 'text-blue-500');
+        btn.classList.add('border-gray-200');
+    }
+    document.getElementById('transfer-money').classList.remove('border-gray-200');
+    document.getElementById('transfer-money').classList.add('border-[#0874f2]', 'bg-[#0874f20d]', 'text-blue-500');
 });
 
 document.getElementById('get-bonus').addEventListener('click', function(){
     handleToggle('get-bonus-container');
+
+    const formBtns = document.getElementsByClassName('form-btn');
+    for (const btn of formBtns){
+        btn.classList.remove('border-[#0874f2]', 'bg-[#0874f20d]', 'text-blue-500');
+        btn.classList.add('border-gray-200');
+    }
+    document.getElementById('get-bonus').classList.remove('border-gray-200');
+    document.getElementById('get-bonus').classList.add('border-[#0874f2]', 'bg-[#0874f20d]', 'text-blue-500');
 });
 
 document.getElementById('pay-bill').addEventListener('click', function(){
     handleToggle('pay-bill-container');
+
+    const formBtns = document.getElementsByClassName('form-btn');
+    for (const btn of formBtns){
+        btn.classList.remove('border-[#0874f2]', 'bg-[#0874f20d]', 'text-blue-500');
+        btn.classList.add('border-gray-200');
+    }
+    document.getElementById('pay-bill').classList.remove('border-gray-200');
+    document.getElementById('pay-bill').classList.add('border-[#0874f2]', 'bg-[#0874f20d]', 'text-blue-500');
 });
 
 document.getElementById('transaction').addEventListener('click', function(){
     handleToggle('transaction-container');
+
+    const formBtns = document.getElementsByClassName('form-btn');
+    for (const btn of formBtns){
+        btn.classList.remove('border-[#0874f2]', 'bg-[#0874f20d]', 'text-blue-500');
+        btn.classList.add('border-gray-200');
+    }
+    document.getElementById('transaction').classList.remove('border-gray-200');
+    document.getElementById('transaction').classList.add('border-[#0874f2]', 'bg-[#0874f20d]', 'text-blue-500');
 });
 
 // cashout button interactivity
