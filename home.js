@@ -10,6 +10,16 @@ function getInputValueNumber(id) {
     return parseInt(document.getElementById(id).value);
 }
 
+// frnction to get innertext
+function getInnerText(id){
+    return parseInt(document.getElementById(id).innerText);
+}
+
+// function to set innertext
+function setInnerText(value){
+    return parseInt(document.getElementById('available-balance').innerText = value);
+}
+
 // log out button interactivity
 document.getElementById('logout-btn').addEventListener('click', function (){
     window.location.href = './index.html'
@@ -39,9 +49,9 @@ document.getElementById('add-money-btn').addEventListener('click', function(e){
         return;
     }
 
-    const availableBalance = parseInt(document.getElementById('available-balance').innerText);
+    const availableBalance = getInnerText('available-balance');
     const newAvailableBalance = availableBalance + addAmount;
-    document.getElementById('available-balance').innerText = newAvailableBalance;
+    setInnerText(newAvailableBalance);
 
     document.getElementById('account-number').value = '';
     document.getElementById('add-amount').value = '';
@@ -136,9 +146,9 @@ document.getElementById('cashout-button').addEventListener('click', function(e){
         return;
     }
 
-    const availableBalance = parseInt(document.getElementById('available-balance').innerText);
+    const availableBalance = getInnerText('available-balance'); 
     const newAvailableBalance = availableBalance - cashoutAmount;
-    document.getElementById('available-balance').innerText = newAvailableBalance;
+    setInnerText(newAvailableBalance);
 
     document.getElementById('agent-number').value = '';
     document.getElementById('cashout-amount').value = '';
@@ -169,9 +179,9 @@ document.getElementById('transfer-button').addEventListener('click', function(e)
         return;
     }
 
-    const availableBalance = parseInt(document.getElementById('available-balance').innerText);
+    const availableBalance = getInnerText('available-balance');
     const newAvailableBalance = availableBalance - transferAmount;
-    document.getElementById('available-balance').innerText = newAvailableBalance;
+    setInnerText(newAvailableBalance);
 
     document.getElementById('recipient-number').value = '';
     document.getElementById('transfer-amount').value = '';
