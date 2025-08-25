@@ -48,11 +48,11 @@ function emptyStr(id) {
 }
 
 // defaut display 
-document.getElementById('add-money-container').style.display = 'none';
+document.getElementById('add-money-container').style.display = 'block';
 document.getElementById('cashout-container').style.display = 'none';
 document.getElementById('transfer-money-container').style.display = 'none';
 document.getElementById('get-bonus-container').style.display = 'none';
-document.getElementById('pay-bill-container').style.display = 'block';
+document.getElementById('pay-bill-container').style.display = 'none';
 document.getElementById('transaction-container').style.display = 'none';
 
 // toggling feature 
@@ -99,24 +99,19 @@ document.getElementById('add-money-btn').addEventListener('click', function(e){
     const accountNumber = getInputValue('account-number');
     const addAmount = getInputValueNumber('add-amount');
     const pinNumber = getInputValueNumber('add-pin');
-
-    if (accountNumber.length < 11 || accountNumber.length > 11) {
-        alert('Please provide valid account number');
-        return;
-    }
-
-    if (pinNumber !== validPin) {
-        alert('Please provide valid pin');
-        return;
-    }
-
-    if (addAmount <= 0) {
-        alert('Please provide valid amount');
-        return;
-    }
-
     const availableBalance = getInnerText('available-balance');
     const newAvailableBalance = availableBalance + addAmount;
+
+    if (accountNumber.length < 11 || accountNumber.length > 11) {
+        return alert('Please provide valid account number');
+    }
+    if (addAmount <= 0 || isNaN(addAmount) === true) {
+        return alert('Please provide valid amount');
+    }
+    if (pinNumber !== validPin) {
+        return alert('Please provide valid pin');
+    }
+
     setInnerText(newAvailableBalance);
 
     emptyStr('account-number');
@@ -139,24 +134,23 @@ document.getElementById('cashout-button').addEventListener('click', function(e){
     const agentNumber = getInputValue('agent-number');
     const cashoutAmount = getInputValueNumber('cashout-amount');
     const cashoutPin = getInputValueNumber('cashout-pin');
-
-    if (agentNumber.length < 11 || agentNumber.length > 11) {
-        alert('Please provide valid agent number');
-        return;
-    }
-
-    if (cashoutPin !== validPin) {
-        alert('Please provide valid pin');
-        return;
-    }
-
-    if (cashoutAmount <= 0) {
-        alert('Please provide valid amount');
-        return;
-    }
-
     const availableBalance = getInnerText('available-balance'); 
     const newAvailableBalance = availableBalance - cashoutAmount;
+    
+
+    if (agentNumber.length < 11 || agentNumber.length > 11) {
+        return alert('Please provide valid agent number');
+    }
+    if (cashoutAmount <= 0 || isNaN(cashoutAmount) === true) {
+        return alert('Please provide valid amount');
+    }
+    if (cashoutAmount > availableBalance) {
+        return alert('Insufficient Balance');
+    }
+    if (cashoutPin !== validPin) {
+        return alert('Please provide valid pin');
+    }
+
     setInnerText(newAvailableBalance);
 
     emptyStr('agent-number');
@@ -178,24 +172,22 @@ document.getElementById('transfer-button').addEventListener('click', function(e)
     const recipientNumber = getInputValue('recipient-number');
     const transferAmount = getInputValueNumber('transfer-amount');
     const transferPin = getInputValueNumber('transfer-pin');
-
-    if (recipientNumber.length < 11 || recipientNumber.length > 11) {
-        alert('Please provide valid user account number');
-        return;
-    }
-
-    if (transferPin !== validPin) {
-        alert('Please provide valid pin');
-        return;
-    }
-
-    if (transferAmount <= 0) {
-        alert('Please provide valid amount');
-        return;
-    }
-
     const availableBalance = getInnerText('available-balance');
     const newAvailableBalance = availableBalance - transferAmount;
+
+    if (recipientNumber.length < 11 || recipientNumber.length > 11) {
+        return alert('Please provide valid user account number');
+    }
+    if (transferAmount <= 0 || isNaN(transferAmount) === true) {
+        return alert('Please provide valid amount');
+    }
+    if (transferAmount > availableBalance) {
+        return alert('Insufficient Balance');
+    }
+    if (transferPin !== validPin) {
+        return alert('Please provide valid pin');
+    }
+
     setInnerText(newAvailableBalance);
 
     emptyStr('recipient-number');
@@ -222,12 +214,25 @@ document.getElementById('pay-now-btn').addEventListener('click', function(e) {
     e.preventDefault();
 
     const payBillBank = getInputValue('pay-bill-bank');
-    const billerAccountNumber = getInputValueNumber('biller-account-number');
+    const billerAccountNumber = getInputValue('biller-account-number');
     const billAmount = getInputValueNumber('bill-amount');
     const billPin = getInputValueNumber('bill-pin');
-
     const availableBalance = getInnerText('available-balance');
     const newAvailableBalance = availableBalance - billAmount;
+
+    if (billerAccountNumber.length < 11 || billerAccountNumber.length > 11) {
+        return alert('Please provide valid user account number');
+    }
+    if (billAmount <= 0 || isNaN(billAmount) === true) {
+        return alert('Please provide valid amount');
+    }
+    if (billAmount > availableBalance) {
+        return alert('Insufficient Balance');
+    }
+    if (billPin !== validPin) {
+        return alert('Please provide valid pin');
+    }
+
     setInnerText(newAvailableBalance);
 
     emptyStr('biller-account-number');
