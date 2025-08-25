@@ -71,7 +71,7 @@
     <div class="all-form-section max-w-lg mx-auto">
         <!-- add money  -->
         <div class="form" id="add-money-container">
-            <h1 class="ml-5 my-5 font-bold">Add Money</h1>
+            <h1 class="ml-3 my-5 font-bold">Add Money</h1>
             <form action="" class="bg-white rounded-2xl p-8">
                 <div>
                     <label class="font-semibold" for="">Select a bank</label>
@@ -106,7 +106,7 @@
 
         <!-- cash out  -->
         <div class="form" id="cashout-container">
-            <h1 class="ml-5 my-5 font-bold">Cashout</h1>
+            <h1 class="ml-3 my-5 font-bold">Cashout</h1>
             <form action="" class="bg-white rounded-2xl p-8">
                 <div class="mt-3">
                     <label class="font-semibold" for="">Agent number</label>
@@ -130,7 +130,7 @@
 
         <!-- Transfer money  -->
         <div class="form" id="transfer-money-container">
-            <h1 class="ml-5 my-5 font-bold">Transfer Money</h1>
+            <h1 class="ml-3 my-5 font-bold">Transfer Money</h1>
             <form action="" class="bg-white rounded-2xl p-8">
                 <div class="mt-3">
                     <label class="font-semibold" for="">Recipient number</label>
@@ -154,19 +154,58 @@
 
         <!-- get bonus  -->
         <div class="form" id="get-bonus-container">
-            <h1 class="ml-5 my-5 font-bold">Get Bonus</h1>
+            <h1 class="ml-3 my-5 font-bold">Get Bonus</h1>
+            <form action="" class="bg-white rounded-2xl p-8">
+                <div class="mt-3">
+                    <label class="font-semibold" for="">Enter Bonus Coupon</label>
+                    <br>
+                    <input id="bonus-coupon-input" type="text" placeholder="Enter your Coupon" class="input bg-[#f4f5f7] mt-3 rounded-3xl border-none w-full " />
+                </div>
+
+                <button id="get-bonus-btn" class="btn bg-[#0874F2] mt-5 w-full rounded-3xl text-white">Get Bonus</button>
+            </form>
         </div>
 
         <!-- Pay bill  -->
         <div class="form" id="pay-bill-container">
-            <h1 class="ml-5 my-5 font-bold">Pay Bill</h1>
+            <h1 class="ml-3 my-5 font-bold">Pay Bill</h1>
+            <form action="" class="bg-white rounded-2xl p-8">
+                <div>
+                    <label class="font-semibold" for="">Select to Pay</label>
+                    <br>
+                    <select id="pay-bill-bank" class="select bg-[#f4f5f7] mt-3 rounded-3xl border-none w-full">
+                        <option disabled selected id="select-to-pay">Select Bank</option>
+                        <option>AB Bank</option>
+                        <option>IFIC bank</option>
+                        <option>Dutch bangla bank</option>
+                        <option>Islami bank bangladesh</option>
+                    </select>
+                </div>
+                <div class="mt-3">
+                    <label class="font-semibold" for="">Biller account number</label>
+                    <br>
+                    <input id="biller-account-number" type="text" placeholder="Enter account number" class="input bg-[#f4f5f7] mt-3 rounded-3xl border-none w-full " />
+                </div>
+                <div class="mt-3">
+                    <label class="font-semibold" for="">Amount to pay</label>
+                    <br>
+                    <input id="bill-amount" type="text" placeholder="Add amount to pay"  class="input bg-[#f4f5f7] mt-3 rounded-3xl border-none w-full " />
+                </div>
+                <div class="mt-3">
+                    <label class="font-semibold" for="">Pin number</label>
+                    <br>
+                    <input id="bill-pin" type="text" placeholder="Enter 4 digit pin Number " class="input bg-[#f4f5f7] mt-3 rounded-3xl border-none w-full " />
+                </div>
+
+                <button id="pay-now-btn" class="btn bg-[#0874F2] mt-5 w-full rounded-3xl text-white">Pay Now</button>
+            </form>
         </div>
 
         <!-- transactions  -->
         <div class="form" id="transaction-container">
             <div class="flex justify-between items-center">
-                <h1 class="ml-5 my-5 font-bold">Transaction History</h1>
-                <p class="text-[#08080880]">View All</p>
+                <h1 class="ml-3 my-5 font-bold">Transaction History</h1>
+                <p class="text-[#08080880] mr-3">View All</p>
             </div>
 
             <div id="transaction-history-container">

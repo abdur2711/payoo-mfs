@@ -52,8 +52,8 @@ document.getElementById('add-money-container').style.display = 'none';
 document.getElementById('cashout-container').style.display = 'none';
 document.getElementById('transfer-money-container').style.display = 'none';
 document.getElementById('get-bonus-container').style.display = 'none';
-document.getElementById('pay-bill-container').style.display = 'none';
-document.getElementById('transaction-container').style.display = 'block';
+document.getElementById('pay-bill-container').style.display = 'block';
+document.getElementById('transaction-container').style.display = 'none';
 
 // toggling feature 
 document.getElementById('add-money').addEventListener('click', function(){
@@ -202,7 +202,7 @@ document.getElementById('transfer-button').addEventListener('click', function(e)
     emptyStr('transfer-amount');
     emptyStr('transfer-pin');
 
-    alert(`$${transferAmount} transferred to ${recipientNumber} successful. Balance: $${newAvailableBalance}`);
+    alert(`$${transferAmount} transferred successfully. Balance: $${newAvailableBalance}`);
 
     const data = {
         name: 'Add Money',
@@ -210,6 +210,39 @@ document.getElementById('transfer-button').addEventListener('click', function(e)
     }
     transactionData.push(data);
 });
+
+// get bonus button interactivity
+document.getElementById('get-bonus-btn').addEventListener('click', function(e){
+    e.preventDefault();
+    emptyStr('bonus-coupon-input');
+});
+
+// pay bill button interactivity
+document.getElementById('pay-now-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const payBillBank = getInputValue('pay-bill-bank');
+    const billerAccountNumber = getInputValueNumber('biller-account-number');
+    const billAmount = getInputValueNumber('bill-amount');
+    const billPin = getInputValueNumber('bill-pin');
+
+    const availableBalance = getInnerText('available-balance');
+    const newAvailableBalance = availableBalance - billAmount;
+    setInnerText(newAvailableBalance);
+
+    emptyStr('biller-account-number');
+    emptyStr('bill-amount');
+    emptyStr('bill-pin');
+    document.getElementById('pay-bill-bank').value = document.getElementById('select-to-pay').innerText;
+
+    alert(`$${billAmount} paid successfully. Balance: ${newAvailableBalance}`)
+
+    const data = {
+        name: 'pay Bill',
+        date: new Date().toLocaleTimeString()
+    }
+    transactionData.push(data);
+})
 
 // display transactionData 
 document.getElementById('transaction').addEventListener('click', function (){
@@ -234,4 +267,4 @@ document.getElementById('transaction').addEventListener('click', function (){
         `
         transactionHistory.appendChild(div);
     }
-})
+});
